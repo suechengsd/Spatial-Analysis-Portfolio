@@ -1,0 +1,94 @@
+---
+title: "Spatial Analysis R Code Snippets"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+#setting figure size and saving into Figs folder, turning warnings and messages off
+
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
+                      warning=FALSE, message=FALSE)
+```
+
+```{r census}
+library(sf)
+library(idbr)
+library(readr)
+library(tmap)
+library(leaflet)
+library(tidycensus)
+library(tidyverse)
+library(cancensus)
+
+vars2010_sf1 <- load_variables(2010, "sf1")
+vars2010_sf3 <- load_variables(2010, "sf3")
+
+canregions <-list_census_regions("CA16")
+
+se_asia_lex <- idb5(
+  country = c("Laos", "Vietnam", "Cambodia", "Thailand"),
+  year = 1995:2021,
+  variable = "E0",
+  country_name = TRUE
+)
+
+top_tfr <- idb5(
+  country = "all",
+  year = 2021,
+  variable = "TFR",
+  country_name = TRUE
+) %>%
+  slice_max(TFR, n = 10)
+
+montreal_english <- get_census(
+  dataset = "CA16",
+  regions = list(CMA = "24462"),
+  vectors = "v_CA16_1364",
+  level = "CT",
+  geo_format = "sf",
+  labels = "short"
+)
+
+tmap_mode("view")
+montreal_pct <- montreal_english %>%
+  mutate(pct_english = 100 * (v_CA16_1364 / Population))
+tm_shape(montreal_pct) + 
+  tm_polygons(col = "pct_english", alpha = 0.5, palette = "viridis",
+              style = "jenks", n = 7, title = "Percent speaking<br/>English at home")
+
+toronto_english <- get_census(
+  dataset = "CA16",
+  regions = list(CMA = "35535"),
+  vectors = "v_CA16_1364",
+  level = "CT",
+  geo_format = "sf",
+  labels = "short"
+)
+
+tmap_mode("view")
+toronto_pct <- toronto_english %>%
+  mutate(pct_english = 100 * (v_CA16_1364 / Population))
+tm_shape(toronto_pct) + 
+  tm_polygons(col = "pct_english", alpha = 0.5, palette = "viridis",
+              style = "jenks", n = 7, title = "Percent speaking<br/>English at home")
+
+MA_Black_palette <- colorNumeric(c("cornsilk", "darkgreen"), toronto_pct$pct_english)
+
+toronto_pct_map1 <- leaflet(toronto_pct) %>%
+  addProviderTiles("Stamen.TonerLite") %>%
+  addPolygons(stroke = FALSE, fillOpacity = 0.7,
+    color = ~MA_Black_palette(pct_english),
+    highlightOptions = highlightOptions(fillColor = "darkorange", fillOpacity = 0.9),
+    label = paste(toronto_pct$`Region Name`, " (GeoUID ",toronto_pct$GeoUID, ")", sep = ""),
+              popup = paste("Total population: ", toronto_pct$Population, "<br/>",
+                            "English-speaking population: ", toronto_pct$v_CA16_1364, " (", 
+                            round(toronto_pct$pct_english, 1), "%)", sep = "")) %>%
+  addLegend("bottomright", pal = MA_Black_palette, values = ~pct_english,
+    title = "Percent speaking<br/>English at home",
+    labFormat = labelFormat(suffix = "%"),
+    opacity = 1)
+
+toronto_pct_map1
+```
+
