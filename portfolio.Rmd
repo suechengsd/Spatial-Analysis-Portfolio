@@ -17,18 +17,15 @@ knitr::opts_chunk$set(echo = TRUE)
 To demonstrate the skillsets I developed in VIS 2128, I have applied each of the skillsets to a Canadian context.
 
 This portfolio demonstrates the following skills:
-* Displaying multiple vector layers on the same map (see Maps # [add hyperlink])
+* Displaying multiple vector layers on the same map (see Maps # [this video](https://harvard.zoom.us/rec/share/edbRDTeqfwdWcOF9aAtpSuklG-W4fb1jGfKDLt964A6WXGZ1zNg6sbTC8FyDbaE7.ltd95WYqpMHPwJ7g?startTime=1630077709000){target="_blank"})
 * Calculating and displaying relationships among point and polygon layers based on distance (see Maps # [add hyperlink])
 * Aggregating point data to a layer of polygons (see Maps # [add hyperlink])
 * Calculating and displaying accessibility, based on travel time (see Maps # [add hyperlink])
 * Converting between raster layers and vector layers (see Maps # [add hyperlink])
 * Displaying raster data on a map (see Maps # [add hyperlink])
 * Georeferencing a raster image (see Maps # [add hyperlink])
-* Displaying data on an interactive map (see Maps # [add hyperlink])
+* Displaying data on an interactive map (see Maps # [1](https://suechengsd.github.io/Spatial-Analysis-Portfolio/portfolio.html#Map_[1]_(Interactive_Map)){target="_self"})
 
-# Maps of Boston
-Here are two maps of Boston. I might include some text here about this set of maps.
-
-## Map [1] (Interactive Map)
+# Map [1] (Interactive Map)
 
 [![](thumbnails/toronto_english_map.png)](links/toronto_english_map.html){target="_blank"}
