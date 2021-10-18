@@ -1,7 +1,7 @@
 ---
-title: "Sue Chen - Portfolio"
+title: "Spatial Analysis Portfolio"
 author: "Sue Chen"
-date: "10/18/2021"
+date: "Fall 2021"
 output: 
   html_document:
     theme: journal
@@ -14,48 +14,21 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-* Displaying multiple vector layers on the same map
-* Calculating and displaying relationships among point and polygon layers based on distance
-* Aggregating point data to a layer of polygons
-* Calculating and displaying accessibility, based on travel time
-* Converting between raster layers and vector layers
-* Displaying raster data on a map
-* Georeferencing a raster image
-* Displaying data on an interactive map
+To demonstrate the skillsets I developed in VIS 2128, I have applied each of the skillsets to a Canadian context.
+
+This portfolio demonstrates the following skills:
+* Displaying multiple vector layers on the same map (see Maps # [add hyperlink])
+* Calculating and displaying relationships among point and polygon layers based on distance (see Maps # [add hyperlink])
+* Aggregating point data to a layer of polygons (see Maps # [add hyperlink])
+* Calculating and displaying accessibility, based on travel time (see Maps # [add hyperlink])
+* Converting between raster layers and vector layers (see Maps # [add hyperlink])
+* Displaying raster data on a map (see Maps # [add hyperlink])
+* Georeferencing a raster image (see Maps # [add hyperlink])
+* Displaying data on an interactive map (see Maps # [add hyperlink])
 
 # Maps of Boston
 Here are two maps of Boston. I might include some text here about this set of maps.
 
-## Interactive Map
-This interactive map demonstrates the following skills: 
+## Map [1] (Interactive Map)
 
-* Displaying data on an interactive map
-
-[![](thumbnails/Boston_interactive.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/inter_black.html){target="_blank"}
-
-## Clockboard Map
-This map demonstrates the following skills:
-
-* Aggregating point data to a layer of polygons
-
-[![](thumbnails/clockboard.jpg)](https://c-voulgaris.github.io/portfolio_examples/fullsize/clockboard.pdf){target="_blank"}
-
-# Maps of San Luis Obispo
-Here are two maps of San Luis Obispo, California. I might include some text here as well.
-
-## Isochrones
-This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
-
-* Displaying multiple vector layers on the same map
-* Calculating and displaying accessibility, based on travel time
-
-[![](thumbnails/SLO_isochrone.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/SLO_schools.pdf){target="_blank"}
-
-## Accessibility
-This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
-
-* Displaying multiple vector layers on the same map
-* Calculating and displaying accessibility, based on travel time
-* Displaying raster data on a map
-
-[![](thumbnails/SLO_raster.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/SLO_transit.pdf){target="_blank"}
+[![](thumbnails/toronto_english_map.png)](links/toronto_english_map.html){target="_blank"}
